@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17-Aug-2016, 6:37:39 PM
+    Author     : Shawn
+*/
+
+/* CSS for the page itself */
+
+.lightBlueBg {
+    background-color: #009BFA;
+    padding: 10px;
+}
+
+.coolGreyBg {
+    background-color: #DFDFDF;
+     padding: 10px;
+}
+
+.whiteBg {
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.blueBg {
+    background-color: #1450D2;
+    padding: 10px;
+}
+
+.purpleBg {
+    background-color: #6423A0;
+    padding: 10px;
+}

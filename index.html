@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+
+        <title>CE-Caster</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- jQuery -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+        <!--  Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+
+
+        <link rel="stylesheet" href="css/video-player.css">
+        <link rel="stylesheet" href="css/quiz.css">
+        <link rel="stylesheet" href="css/custom.css">
+        <script type="text/javascript" src="js/video-player.js"></script>
+        <script type="text/javascript" src="js/quiz.js"></script>
+    </head>
+
+
+
+    <body class="blueBg">
+        <br>
+
+        <div class="container"><!-- Video Container Start -->
+
+            <div class="row whiteBg">
+
+                <div class="col-md-8">
+                    <video  width="100%" id="videoPlayer" style="border: 1px solid grey" preload="auto">
+                        <source src='content/Toronto.mp4' type=video/mp4>
+                        Your browser does not support this video.
+                    </video>
+                    
+                    <div class="videoControls">
+
+                        <a href="#" class="btnPlay"><span class="glyphicon glyphicon-play"></span></a>
+                        <a href="#" class="btnMute"><span class="glyphicon glyphicon-volume-up"></span></a>
+
+
+
+                        <div class="progressBar">
+                            <div class="timeBar"></div>
+                        </div>
+
+
+
+
+                        <a href="#" class="btnFullscreen"><span class="glyphicon glyphicon-fullscreen"></span></a>
+
+                        <div class="videoTime">
+                            <span class="current">0:00</span> / <span class="duration"></span>
+                            <img src="">
+                        </div>
+
+                            
+                    </div>
+                    
+
+                </div>
+                <br>
+                <div class="col-md-4">
+                    <div class="whiteBg">
+                        <h4><em>Webcast</em> - Video Series</h4>
+                        <h6>Presented by: The Host</h6>
+                        <br>
+                        <h5>Video description title</h5>
+                        <div class="">
+                        Thank you to Luis Enrique Carvajal from Pexels for the Open Source Video - <a href="https://www.instagram.com/lerc_21/">Here's his Instagram</a>
+                    </div>                 
+                    </div>                     
+                </div> 
+                <div class="col-md-4">
+                    <div class="whiteBg">
+
+                        <div class="">
+                            Download Documents
+                            <h5>Featured Document: <a href="#">Featured Doc.pdf</a></h5>
+                            <h5>Script: <a href="#">Subtitles.pdf</a></h5>
+                            <h5>Slides: <a href="#">Presentation.pdf</a></h5>
+                        </div>
+                    </div>
+                </div>            
+                <div class="col-md-4">
+                    <div class="coolGreyBg">
+
+                        <table class="table">
+                            <tr>
+                                <td>Percent Viewed: <span class="percentCompleted"></span> %</td>
+                                <td> </td>
+                                <td><button id="btnQuiz" class="btn btn-primary" disabled>Take the quiz</button></td>
+
+                            </tr>
+                        </table>
+                        <h6>Quiz will become active when entire video has been viewed.</h6>
+                    </div>
+                </div>
+            </div>
+            <!-- Below the video content-->
+
+        </div><!-- video container end -->
+
+
+        <div class="container">
+            <div class="row  whiteBg">
+                <div class="col-md-8">
+
+
+                </div>
+                <div class="col-md-4">
+
+                </div>
+
+            </div>
+        </div>
+
+        <br>
+
+        <div class="container">
+            <div id ="quizBox" hidden >
+            <div class="row whiteBg">
+                <div class="col-md-2">
+                    <h4>Quiz</h4>
+                    <h6>You must achieve a 100% mark on the quiz for your continuing education certificate to be generated. </h6>
+                        <h6>You can retake the quiz as many times a needed to achieve this score.</h6>
+                    
+                        <button id="btnRetry" class="btn btn-primary" onclick="restart()" >Restart</button>
+                        <br>
+                </div>
+                <div class="col-md-6">
+                    
+                    
+                    <div id="quiz_status" >
+                        
+                    </div>
+                    <div id="quiz">
+                        
+                    </div>
+                    
+                    <div class="alert" id="passed" hidden>
+                        <h3>You passed.</h3>
+                    </div>
+                    <div class="alert" id="failed" hidden>
+                        <h3>Please Retry.</h3>
+                    </div>
+                    
+                    
+                </div>
+                <div class="col-md-4">
+                    <div id="getCertificate" hidden>
+                    <h4>Click here to generate your CE certificate.</h4>
+                    <br>
+                    <br>
+                    <button type="button" class="btn btn-lg btn-success" >Generate Certificate</button>
+                    </div>
+                </div>
+                
+                
+                
+                </div>
+                
+                
+                
+                
+                
+        </div>
+        </div>
+        <br>
+
+        <div class="container whiteBg">
+            <div class="row">
+
+                <div class="col-md-4">
+                    <p>Stats:</p>
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Total viewing time: <span class="total">0</span> seconds</td>
+
+                        </tr>
+                        <tr>
+                            <td>Required Completion: <span class="requireCompleted"></span> seconds</td>
+
+                        </tr>
+                        <tr>
+                            <td>Percent Needed: <span class="percentViewedNeeded"></span> %</td>
+
+                        </tr>
+                        <tr>
+                            <td>Completed: <span class="completed"></span></td>
+
+                        </tr>
+                        <tr>
+                            <td>Percent Complete: <span class="percentCompleted"></span> %</td>
+
+                        </tr>
+                        <tr>
+                            <td>Where they left off: <span class="startpoint"></span></td>
+                            
+                        </tr>
+                       
+                    </table>
+
+
+
+
+                </div>
+                <div class="col-md-6">
+                    <p> Quiz Stats:</p>
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Attempts: <span class="attempts"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Passed the quiz: <span class="pass"></span></td>
+                        </tr>
+                        <tr>
+                          <td>Restarts: <span class="restarts"></span></td>
+                        </tr>
+                        <tr>                         
+                            
+                        </tr>
+                        <tr>
+                        
+                        </tr>
+                        <tr>
+                            
+                        </tr>
+                       
+                    </table>
+                    
+                    
+                    
+                    
+                    <p></p>
+                    <p>TimeRanges: <span class="viewed"></span></p>                 
+
+
+                </div>
+            </div>
+        </div>  
+        <script> window.addEventListener("load", renderQuestion, false);</script>
+    </body>
+
+</html>

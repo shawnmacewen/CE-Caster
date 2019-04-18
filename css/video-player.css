@@ -1,0 +1,65 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 13-Aug-2016, 4:38:21 PM
+    Author     : Shawn
+*/
+
+/* CSS specific to the player controls */
+
+
+.videoControls {
+    width: 100%;
+    font-size: 15px;
+
+}
+.videoControls span, .videoControls div {
+    display: inline-block;
+    color: #999;
+}
+.btnMute {
+    padding-right: 10px;
+    margin-left: 10px;
+    color: #999;
+}
+
+.btnFullscreen, .videoTime {
+    float: right;
+    padding-right: 10px;
+    color: #999;
+}
+.btnPlay {
+
+    margin-left: 10px;
+    color: #999;
+}
+.glyphicon:hover {
+    color: #555;
+}
+
+.progressBar
+{
+
+    position: relative;
+    width: 75%;
+    height: 10px;
+    backgroud-color: #000;
+
+
+
+}
+.timeBar
+{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #ccc;
+
+
+}
